@@ -32,13 +32,11 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta(object):
         model = User
-        fields = ('email', 'username', 'first_name', 'last_name',
-                  'password', 'confirm_password', 'full_name',
-                  'tokens', 'receive_offers')
+        fields = ('email', 'username', 'password',
+                  'confirm_password', 'full_name',
+                  'tokens', )
         extra_kwargs = {
             'password': {'write_only': True},
-            'last_name': {'write_only': True},
-            'receive_offers': {'write_only': True},
         }
 
     @staticmethod

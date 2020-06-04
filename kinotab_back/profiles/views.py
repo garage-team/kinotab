@@ -26,7 +26,7 @@ class UserViewSet(
 
     lookup_field = 'username'
 
-    def create(self, request):
+    def create(self, request, **kwargs):
         if request.auth is not None:
             return Response(status=status.HTTP_403_FORBIDDEN)
 
