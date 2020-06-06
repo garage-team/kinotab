@@ -10,7 +10,6 @@ class User(AbstractUser):
     username = None
     email = models.EmailField(_('email address'), unique=True)
 
-
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
@@ -20,12 +19,12 @@ class User(AbstractUser):
         """Return the username for this User."""
         return getattr(self, self.USERNAME_FIELD)
 
-    @property
-    def full_name(self):
-        return ' '.join((self.first_name, self.last_name))
-
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=40, blank=True, null=True)
     last_name = models.CharField(max_length=40, blank=True, null=True)
+
+    @property
+    def full_name(self):
+        return ' '.join((self.first_name, self.last_name))

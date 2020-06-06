@@ -44,6 +44,9 @@ class UserViewSet(
         instance.set_password(validate_data['password'])
         instance.save()
 
-    @action(detail=False, methods=['get'], url_name='current_user', url_path='me')
+    @action(detail=False,
+            methods=['get'],
+            url_name='current_user',
+            url_path='me')
     def current_user(self, request):
         return Response(UserInfoSerializer(request.user).data)
