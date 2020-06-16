@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from movie.models import meta_field, meta_data, movie
+from movie.models import meta_field, meta_data, item_type
 
 
 class MetaFieldSerializer(serializers.ModelSerializer):
@@ -15,7 +15,7 @@ class MetaDataSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class MovieSerializer(serializers.ModelSerializer):
+class ItemTypeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = movie
+        model = item_type
         fields = '__all__'

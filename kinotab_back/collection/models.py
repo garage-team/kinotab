@@ -1,21 +1,30 @@
 from django.db import models
 
-from movie.models import movie
+from movie.models import item_type, meta_data
 from django.conf import settings
 
 
 class tag(models.Model):
     name = models.CharField(max_length=256)
+    favourite = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
 
 
-class user_state(models.Model):
-    watched = models.BooleanField()
-    score = models.IntegerField(null=True, blank=True)
+class item(models.Model):
+    title = models.CharField(max_length=256)
+    meta_data = models.ManyToManyField(meta_data)
+    type = models.ForeignKey(item_type, on_delete=models.DO_NOTHING)
+
+    def __str__(self):
+        return self.title
 
 
 class user_entry(models.Model):
-    movie = models.ForeignKey(movie, on_delete=models.CASCADE)
+    item = models.ForeignKey(item, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
     tags = models.ManyToManyField(tag)
-    state = models.ForeignKey(user_state, on_delete=models.CASCADE)
+    score = models.IntegerField()
+    released = models.BooleanField(default=False)
