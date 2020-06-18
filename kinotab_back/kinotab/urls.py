@@ -21,6 +21,8 @@ from profiles.views import TokenObtainPairView
 
 urlpatterns = [
     path('api/', include('profiles.urls')),
+    path('api/movie/', include('movie.urls')),
+    path('api/collection/', include('collection.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('admin/', admin.site.urls),
