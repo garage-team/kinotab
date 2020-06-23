@@ -11,8 +11,6 @@ class Tag(models.Model):
         return self.name
 
 
-
-
 class MetaField(models.Model):
     name = models.CharField(max_length=256)
 

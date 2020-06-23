@@ -1,7 +1,8 @@
 from rest_framework.routers import DefaultRouter
 
-from collection.views import TagViewSet, ContentItemViewSet, UserEntryViewSet, \
-    MetaFieldViewSet, MetaDataViewSet, ContentTypeViewSet
+from collection.views import TagViewSet, ContentItemViewSet, \
+                            UserEntryViewSet, MetaFieldViewSet, \
+                            MetaDataViewSet, ContentTypeViewSet
 
 router = DefaultRouter()
 router.register('tag', TagViewSet)

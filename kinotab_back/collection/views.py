@@ -1,11 +1,10 @@
-from django.shortcuts import render
-
 from rest_framework import viewsets, permissions
 
 from collection.models import Tag, MetaField, MetaData, \
     ContentType, ContentItem, UserEntry
-from collection.serializers import TagSerializer, ContentItemSerializer, UserEntrySerializer, \
-    MetaFieldSerializer, MetaDataSerializer, ContentTypeSerializer
+from collection.serializers import TagSerializer, ContentItemSerializer, \
+                                    UserEntrySerializer, MetaFieldSerializer, \
+                                    MetaDataSerializer, ContentTypeSerializer
 
 
 class TagViewSet(viewsets.ModelViewSet):
