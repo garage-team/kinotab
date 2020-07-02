@@ -25,7 +25,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=40, blank=True, null=True)
     last_name = models.CharField(max_length=40, blank=True, null=True)
 
